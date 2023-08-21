@@ -3,4 +3,5 @@ class Space < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
   validates :price, presence: true
+  has_many :bookings, dependent: :destroy
 end
