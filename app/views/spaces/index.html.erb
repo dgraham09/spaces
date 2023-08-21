@@ -1,0 +1,12 @@
+<%= render "shared/navbar" %>
+<h1>All Spaces</h1>
+<ul class="cards d-flex justify-content-between p-2 align-items-center">
+    <% @spaces.each do |space| %>
+      <li class="card-category space-group-item my-2" style="width: 18rem;">
+        <div style="background-image: url('<%= image_path "_rfWVqUxPeA.jpg" %>')">
+          <%= link_to space.name, space_path(space), class: "text-decoration-none text-reset"%>
+          <%= space.price.truncate(2) %>
+        </div>
+      </li>
+  <% end %>
+</ul>
