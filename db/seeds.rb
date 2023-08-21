@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "faker"
+puts 'Creating 50 fake spaces'
+100.times do
+  space = Space.new(name: Faker::Address.community, address: Faker::Address.full_address, price: rand(80.01..900.99))
+  space.save!
+end
+puts 'Finished!'
