@@ -1,7 +1,4 @@
-<%= render "shared/navbar" %>
 <h1>All Spaces</h1>
-<%= link_to "New Space", new_space_path, class: "btn btn-primary" %>
-<!-- <%= link_to "Dashboard", new_space_path, class: "btn btn-primary" %>-->
 <ul class="cards justify-content-between p-2 align-items-center">
     <% @spaces.each do |space| %>
       <li class="card-category space-group-item my-2" style="width: 16rem;">
