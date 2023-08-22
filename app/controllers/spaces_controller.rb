@@ -23,10 +23,21 @@ class SpacesController < ApplicationController
       @booking = Booking.new
     end
 
+    def edit
+      @space = Space.find(params[:id])
+    end
+
+    def update
+      @space = Space.find(params[:id])
+      @space.update(space_params)
+      @space.save
+      redirect_to dashboard_path
+    end
+
     def destroy
       @space = Space.find(params[:id])
       @space.destroy
-      redirect_to spaces_path, status: :see_other
+      redirect_to dashboard_path, status: :see_other
     end
 
     private

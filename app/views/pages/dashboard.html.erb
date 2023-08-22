@@ -1,0 +1,30 @@
+
+<button>My Spaces</button>
+<button>My Bookings</button>
+<button>My Account</button>
+
+<%# My spaces %>
+<ul>
+  <% @spaces.each do |space| %>
+    <li>
+      <h2><%= space.name.upcase %></h2>
+      <h3><%= space.price %></h3>
+      <h3>⭐ <%= space.rating %></h3>
+      <%= link_to "🗑️", space_path(space), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-decoration-none"%>
+      <%= link_to "Edit space", edit_space_path(space), class: "text-decoration-none"%>
+    </li>
+   <%end%>
+</ul>
+
+<%# My bookings %>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li>
+      <h2><%= booking.space.name.upcase %></h2>
+      <h3><%= booking.space.price %></h3>
+    </li>
+    <%end%>
+</ul>
+
+
+<%# My account %>

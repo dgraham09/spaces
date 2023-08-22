@@ -20,14 +20,15 @@
               <%= cl_image_tag space.photo.key, height: 200, width: 300, crop: :fill %>
               <%= link_to space.name, space_path(space), class: "text-decoration-none text-reset"%>
               <%= space.price.truncate(2) %>
+              <p>⭐ <%= space.rating %></p>
             <% else %>
               <%= image_tag "stock/stock_space.jpg", height: 200, width: 300, crop: :fill  %>
               <%= link_to space.name, space_path(space), class: "text-decoration-none text-reset"%>
               <%= space.price.truncate(2) %>
+              <p>⭐ <%= space.rating %></p>
             <% end %>
         </div>
       <% end %>
     </div>
   </div>
-
 </div>
