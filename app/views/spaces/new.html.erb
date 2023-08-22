@@ -1,0 +1,13 @@
+<div class="container p-4 d-flex justify-content-center">
+  <h1>Create new space</h1>
+    <div class="position-absolute top-50 start-50 translate-middle", style="width: 32rem;">
+      <%= simple_form_for [@space] do |f| %>
+        <%= f.input :name, placeholder: "Smith's properties" %>
+        <%= f.input :address, placeholder: "10 Oak street, New York, NY" %>
+        <%= f.input :price, placeholder: "$99.99" %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      <% end %>
+      <%= link_to "Go back", spaces_path, class: "btn btn-secondary my-4" %>
+    </div>
+</div>
