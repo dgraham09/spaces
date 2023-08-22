@@ -1,18 +1,34 @@
-<h1>All Spaces</h1>
-<ul class="cards justify-content-between p-2 align-items-center">
-    <% @spaces.each do |space| %>
-      <li class="card-category space-group-item my-2" style="width: 16rem;">
-        <% if space.photo.attached? %>
-          <%= cl_image_tag space.photo.key, height: 200, width: 300, crop: :fill %>
-          <%= link_to space.name, space_path(space), class: "text-decoration-none text-reset"%>
-          <%= space.price.truncate(2) %>
-          <p>⭐ <%= space.rating %></p>
-        <% else %>
-          <%= image_tag "https://uploads-ssl.webflow.com/5ec257673687b0d0f7d61e67/60741e003536396624b511fe_owning-empty-house-selling-empty-house-main-image-yes-homebuyers.jpeg", height: 200, width: 300, crop: :fill  %>
-          <%= link_to space.name, space_path(space), class: "text-decoration-none text-reset"%>
-          <%= space.price.truncate(2) %>
-          <p>⭐ <%= space.rating %></p>
-        <% end %>
-    </li>
-  <% end %>
-</ul>
+<%= render "shared/navbar" %>
+
+<div class="spaces-index-container container mt-5">
+
+  <div class="filters-card-spaces">
+    <div class="filters-card-spaces-content">
+      <h5>Filters</h5>
+      <i class="fa-solid fa-filter"></i>
+    </div>
+  </div>
+
+  <div class="all-spaces">
+    <h4>All Spaces</h4>
+
+    <!-- <%= link_to "Dashboard", new_space_path, class: "btn btn-primary" %>-->
+    <div class="cards-spaces">
+        <% @spaces.each do |space| %>
+          <div class="office-space-card">
+            <% if space.photo.attached? %>
+              <%= cl_image_tag space.photo.key, height: 200, width: 300, crop: :fill %>
+              <%= link_to space.name, space_path(space), class: "text-decoration-none text-reset"%>
+              <%= space.price.truncate(2) %>
+              <p>⭐ <%= space.rating %></p>
+            <% else %>
+              <%= image_tag "stock/stock_space.jpg", height: 200, width: 300, crop: :fill  %>
+              <%= link_to space.name, space_path(space), class: "text-decoration-none text-reset"%>
+              <%= space.price.truncate(2) %>
+              <p>⭐ <%= space.rating %></p>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

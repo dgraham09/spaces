@@ -1,0 +1,31 @@
+.cards-spaces{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 26px;
+}
+
+.office-space-card{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+
+
+// Filters Card on all spaces page:
+.filters-card-spaces{
+  width: 295px;
+  height: 564px;
+
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  padding: 20px 24px;
+}
+
+.filters-card-spaces-content{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
