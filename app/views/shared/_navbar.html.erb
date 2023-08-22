@@ -1,13 +1,13 @@
 <div class="navbar-spaces">
   <ul>
     <li>
-      <%= link_to "#", class: "navbar-brand" do %>
+      <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "logos/spaces_logo_horizontal.png" %>
       <% end %>
     </li>
     <% if user_signed_in? %>
       <li class="nav-item">
-        <%= link_to "Dashboard", new_space_path, class: "nav-link" %>
+        <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to "New Space", new_space_path, class: "nav-link"%>
