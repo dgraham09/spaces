@@ -4,14 +4,29 @@
   grid-gap: 26px;
 }
 
+.cards-spaces a{
+  text-decoration: none !important;
+  color: $black;
+}
+
 .office-space-card{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 295px;
+  height: 408px;
 }
 
+.office-space-card img{
+  width: 304px;
+  height: 307px;
+  border-radius: 20px;
+}
 
-
-
+.office-space-card .price{
+  font-size: 24px;
+  font-weight: 700;
+}
 
 
 // Filters Card on all spaces page:
