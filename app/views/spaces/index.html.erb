@@ -1,6 +1,14 @@
 <%= render "shared/navbar" %>
 
 <div class="spaces-index-container container mt-5">
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-info alert-dismissible fade show m-1 position-fixed position-absolute ms-5 bg-warning bg-opacity-100" role="alert">
+        <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
 
   <div class="filters-card-spaces">
     <div class="filters-card-spaces-content">

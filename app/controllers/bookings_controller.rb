@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
     @booking.space = @space
     if @booking.save
       redirect_to spaces_path
+      flash[:notice] = "Your booking has been confirmed!."
     else
       render "spaces/show", status: :unprocessable_entity
     end
