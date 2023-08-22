@@ -7,12 +7,21 @@
 // General style
 $font-family-sans-serif: $body-font;
 $headings-font-family:   $headers-font;
-$body-bg:                $light-gray;
 $font-size-base:         1rem;
 
+$h1-font-size: 64px;
+$h2-font-size: 48px;
+$h3-font-size: 40px;
+$h4-font-size: 32px;
+$h5-font-size: 20px;
+$small-font-size: 14px;
+
+$headings-font-weight: 700;
+$headings-color: $black;
+$body-color: $medium-grey;
+
 // Colors
-$body-color: $gray;
-$primary:    $blue;
+$primary:    $spaces-yellow;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
