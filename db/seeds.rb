@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require "faker"
+
+
 puts 'Creating 50 fake spaces'
 50.times do
   user = User.new(email: Faker::Internet.email, password: "123456")
