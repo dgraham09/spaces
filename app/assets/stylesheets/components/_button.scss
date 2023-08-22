@@ -1,0 +1,19 @@
+.btn-spaces{
+  padding: 16px 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 62px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  gap: 12px;
+  color:$black;
+}
+
+.btn-primary-spaces{
+  background-color: $spaces-yellow;
+}
+.btn-secondary-spaces{
+  background-color: $dark-grey;
+  color: $white;
+}

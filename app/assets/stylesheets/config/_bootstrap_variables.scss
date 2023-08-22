@@ -16,12 +16,17 @@ $h4-font-size: 32px;
 $h5-font-size: 20px;
 $small-font-size: 14px;
 
+
+$h4-font-family: $body-font;
+
+
 $headings-font-weight: 700;
 $headings-color: $black;
 $body-color: $medium-grey;
 
 // Colors
 $primary:    $spaces-yellow;
+$secondary:  $black;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
