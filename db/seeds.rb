@@ -17,7 +17,7 @@ puts 'Creating 50 fake spaces'
   user = User.new(email: Faker::Internet.email, password: "123456")
   user.save!
 
-  space = Space.new(name: Faker::Address.community, address: Faker::Address.full_address, price: rand(80.01..900.99), user: user)
+  space = Space.new(name: Faker::Address.community, address: Faker::Address.full_address, price: rand(80.01..900.99), rating: rand(1..5), user: user)
   space.save!
 end
 

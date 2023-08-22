@@ -6,10 +6,12 @@
           <%= cl_image_tag space.photo.key, height: 200, width: 300, crop: :fill %>
           <%= link_to space.name, space_path(space), class: "text-decoration-none text-reset"%>
           <%= space.price.truncate(2) %>
+          <p>⭐ <%= space.rating %></p>
         <% else %>
           <%= image_tag "https://uploads-ssl.webflow.com/5ec257673687b0d0f7d61e67/60741e003536396624b511fe_owning-empty-house-selling-empty-house-main-image-yes-homebuyers.jpeg", height: 200, width: 300, crop: :fill  %>
           <%= link_to space.name, space_path(space), class: "text-decoration-none text-reset"%>
           <%= space.price.truncate(2) %>
+          <p>⭐ <%= space.rating %></p>
         <% end %>
     </li>
   <% end %>
