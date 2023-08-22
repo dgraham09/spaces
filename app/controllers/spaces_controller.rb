@@ -1,4 +1,5 @@
 class SpacesController < ApplicationController
+  skip_before_action :authenticate_user!, except: [:index, :show]
     def index
       @spaces = Space.all
     end
@@ -9,8 +10,12 @@ class SpacesController < ApplicationController
 
     def create
       @space = Space.new(space_params)
-      @space.save
-      redirect_to spaces_path
+      @space.user = current_user
+      if @space.save
+        redirect_to spaces_path
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
 
     def show

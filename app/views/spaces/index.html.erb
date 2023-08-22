@@ -1,13 +1,19 @@
 <%= render "shared/navbar" %>
 <h1>All Spaces</h1>
 <%= link_to "New Space", new_space_path, class: "btn btn-primary" %>
-<ul class="cards d-flex justify-content-between p-2 align-items-center">
+<!-- <%= link_to "Dashboard", new_space_path, class: "btn btn-primary" %>-->
+<ul class="cards justify-content-between p-2 align-items-center">
     <% @spaces.each do |space| %>
-      <li class="card-category space-group-item my-2" style="width: 18rem;">
-        <div style="background-image: url('<%= image_path "_rfWVqUxPeA.jpg" %>')">
+      <li class="card-category space-group-item my-2" style="width: 16rem;">
+        <% if space.photo.attached? %>
+          <%= cl_image_tag space.photo.key, height: 200, width: 300, crop: :fill %>
           <%= link_to space.name, space_path(space), class: "text-decoration-none text-reset"%>
           <%= space.price.truncate(2) %>
-        </div>
-      </li>
+        <% else %>
+          <%= image_tag "https://uploads-ssl.webflow.com/5ec257673687b0d0f7d61e67/60741e003536396624b511fe_owning-empty-house-selling-empty-house-main-image-yes-homebuyers.jpeg", height: 200, width: 300, crop: :fill  %>
+          <%= link_to space.name, space_path(space), class: "text-decoration-none text-reset"%>
+          <%= space.price.truncate(2) %>
+        <% end %>
+    </li>
   <% end %>
 </ul>

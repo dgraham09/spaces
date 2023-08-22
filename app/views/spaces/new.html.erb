@@ -4,7 +4,7 @@
       <%= simple_form_for [@space] do |f| %>
         <%= f.input :name, placeholder: "Smith's properties" %>
         <%= f.input :address, placeholder: "10 Oak street, New York, NY" %>
-        <%= f.input :price, placeholder: "$99.99" %>
+        <%= f.input :price, placeholder: "99.99" %>
         <%= f.input :photo, as: :file %>
         <%= f.submit "Submit", class: "btn btn-primary" %>
       <% end %>
