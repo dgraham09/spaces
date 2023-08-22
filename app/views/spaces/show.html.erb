@@ -1,9 +1,18 @@
 <h1><%=@space.name%></h1>
 
-<%= simple_form_for [@space, @booking] do |f| %>
-  <%= f.input :booking_start_date %>
-  <%= f.input :booking_end_date %>
+<div class="data-controller="bookings">
+  <%= simple_form_for [@space, @booking], data:{ controller: "datepicker"} do |f| %>
+    <%= f.input :booking_start_date,
+                label: "Booking dates",
+                as: :string,
+                input_html: { data: { datepicker_target: "start_date" }, class: "bg-warning"}%>
+    <%= f.input :booking_end_date,
+                as: :string,
+                input_html: { data: { datepicker_target: "end_date"}} %>
   <%= f.button :submit, class: "btn btn-primary mb-3" %>
-<% end %>
+  <% end %>
+</div>
 
 <%= link_to "Go back to spaces", spaces_path, class:"btn btn-primary" %>
+
+<%# Move controller up to top of form and create two new targets %>
