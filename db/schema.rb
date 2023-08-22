@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_145159) do
     t.date "booking_start_date"
     t.date "booking_end_date"
     t.bigint "user_id", null: false
-    t.bigint "space_gaaid", null: false
+    t.bigint "space_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["space_id"], name: "index_bookings_on_space_id"

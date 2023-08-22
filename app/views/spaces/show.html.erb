@@ -1,5 +1,9 @@
 <h1><%=@space.name%></h1>
 
+<%= simple_form_for [@space, @booking] do |f| %>
+  <%= f.input :booking_start_date %>
+  <%= f.input :booking_end_date %>
+  <%= f.button :submit, class: "btn btn-primary mb-3" %>
+<% end %>
 
-<%= link_to "Book", new_space_booking_path(@space) %>
-<%= link_to "Go back to spaces", spaces_path %>
+<%= link_to "Go back to spaces", spaces_path, class:"btn btn-primary" %>
