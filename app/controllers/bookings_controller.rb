@@ -15,8 +15,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.space = @space
-    @booking.save!
-    redirect_to spaces_path
+    if @booking.save
+      redirect_to spaces_path
+    else
+      render "spaces/show", status: :unprocessable_entity
+    end
   end
 
   private
