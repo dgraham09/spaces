@@ -35,9 +35,9 @@ Space.destroy_all
     "Villa Gaudelet"
   ]
 
-  # file = URI.open(photo_url)
+  file = URI.open(photo_url)
   space = Space.new(name: Faker::Address.community, address: "#{rand(1..5)} #{streets_paris.sample}, Paris" , price: rand(80.01..900.99), rating: rand(1..5), capacity: rand(2..20), user: user)
-  # space.photo.attach(io: file, filename: "desk.png", content_type: "image/png")
+  space.photo.attach(io: file, filename: "desk.png", content_type: "image/png")
   space.save!
 
   end
