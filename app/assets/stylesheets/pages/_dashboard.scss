@@ -31,6 +31,42 @@ ul {
 }
 
 .my-booking-card #selectedDates,
-.my-booking-card span {
+.my-booking-card span,
+.my-booking-card a {
   color: rgba(0, 0, 0, 0.60);
+}
+
+.dashboard .tabbar {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.tabbar {
+  border-bottom: 1px solid rgb(224, 224, 224);
+  width: 50%;
+  margin: 0 auto;
+}
+
+.tabbar a {
+  text-decoration: none;
+  color: black;
+  font-family: "Roboto";
+  margin: 1em;
+}
+
+.tabbar .active a {
+  text-decoration: none;
+  color: black;
+  font-family: "Roboto";
+  margin: 1em;
+}
+
+
+.tabbar a.active {
+  border-bottom: 3px solid black;
+}
+
+.tabbar a:hover {
+  border-bottom: 3px solid black;
 }
