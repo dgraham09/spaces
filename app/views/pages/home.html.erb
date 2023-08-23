@@ -7,10 +7,12 @@
   <%= image_tag "stock/herman_chair_photo.png"%>
 </div>
 
-<h2 id="featured-spaces-h2">FEATURED SPACES</h2>
+<div id="featured-spaces-div">
+  <h2 class="text-center mb-5">FEATURED SPACES</h2>
 
-<div class="cards-spaces">
-  <% @spaces_4s.each do |space| %>
-        <%= render "spaces/office_space_card", space: space %>
-  <% end %>
+  <div class="cards-spaces cards-4">
+    <% @spaces_4s.each do |space| %>
+          <%= render "spaces/office_space_card", space: space %>
+    <% end %>
+  </div>
 </div>
