@@ -1,0 +1,36 @@
+ul {
+  list-style: none;
+}
+
+// progress -webkit-progress-value {
+//   color: red;
+// }
+.my-booking-card img {
+  width: 304px;
+  padding: 1em;
+  height: 307px;
+  border-radius: 20px;
+}
+
+.dates {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.paymentInfo {
+  display: flex;
+  align-items: center;
+}
+
+.my-booking-card {
+  height: 519px;
+  width: 1215px;
+}
+
+#selectedDates,
+span {
+  color: rgba(0, 0, 0, 0.60);
+}
