@@ -4,7 +4,7 @@
 `<div class="d-flex flex-row card m-4 p-4 my-booking-card">
   <div>
       <% if booking.space.photo.attached? %>
-      <%= cl_image_tag space.photo.key%>
+      <%= cl_image_tag booking.space.photo.key%>
     <% else %>
       <%= image_tag "stock/stock_space.jpg"%>
     <% end %>
