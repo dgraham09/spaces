@@ -1,6 +1,6 @@
-<div class="container p-4 d-flex justify-content-center">
+<div class="container">
   <h1>Create new space</h1>
-    <div class="position-absolute top-50 start-50 translate-middle", style="width: 32rem;">
+    <div>
       <%= simple_form_for [@space] do |f| %>
         <%= f.input :name, placeholder: "Smith's properties" %>
         <%= f.input :address, placeholder: "10 Oak street, New York, NY" %>
