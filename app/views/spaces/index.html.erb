@@ -11,34 +11,7 @@
     <h4>All Spaces</h4>
     <div class="cards-spaces">
       <% @spaces.each do |space| %>
-
-        <%= link_to space_path(space) do %>
-
-          <div class="office-space-card">
-            <% if space.photo.attached? %>
-              <%= cl_image_tag space.photo.key%>
-            <% else %>
-              <%= image_tag "stock/stock_space.jpg"%>
-            <% end %>
-              <div>
-                <h5><%= space.name %></h5>
-
-                <div>
-                  <% space.rating.to_i.times do %>
-                    <span><i class="fa-solid fa-star"></i></span>
-                  <% end %>
-                  <% (5 - space.rating.to_i).times do %>
-                    <span><i class="fa-regular fa-star"></i></span>
-                  <% end %>
-                  <%= space.rating %>
-                </div>
-
-                <h5 class="price"> <%= space.price.truncate(2) %> </h5>
-              </div>
-          </div>
-
-        <% end %>
-
+        <%= render "spaces/office_space_card", space: space %>
       <% end %>
     </div>
   </div>
