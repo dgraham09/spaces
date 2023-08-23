@@ -35,16 +35,16 @@ Space.destroy_all
     "Villa Gaudelet"
   ]
 
-  file = URI.open(photo_url)
-  space = Space.new(name: Faker::Address.community, address: "#{rand(1..5)} #{streets_paris.sample}, Paris" , price: rand(80.01..900.99), rating: rand(1..5), user: user)
-  space.photo.attach(io: file, filename: "desk.png", content_type: "image/png")
+  # file = URI.open(photo_url)
+  space = Space.new(name: Faker::Address.community, address: "#{rand(1..5)} #{streets_paris.sample}, Paris" , price: rand(80.01..900.99), rating: rand(1..5), capacity: rand(2..20), user: user)
+  # space.photo.attach(io: file, filename: "desk.png", content_type: "image/png")
   space.save!
 
   end
 
   user = User.new(email: "maxxx@gmail.com", password: "123456")
   user.save!
-  space_max = Space.new(name: "Max's Castle", address: "Gran Via de les Corts Catalanes, 540, 08011 Barcelona, Spain", price: 88, user: user)
+  space_max = Space.new(name: "Max's Castle", address: "Gran Via de les Corts Catalanes, 540, 08011 Barcelona, Spain", price: 88, capacity: 12, user: user)
   space_max.save!
 
   user = User.new(email: "davidos@gmail.com", password: "123456")
@@ -54,7 +54,7 @@ Space.destroy_all
 
   user = User.new(email: "malinuxmagician@gmail.com", password: "123456")
   user.save!
-  space = Space.new(name: "Park residence", address: "163 Av. de Suffren, 75015 Paris", price: 90, user: user)
+  space = Space.new(name: "Park residence", address: "163 Av. de Suffren, 75015 Paris", price: 90, capacity: 8, user: user)
   space.save!
   booking = Booking.new(booking_start_date: Date.today - 23.days, booking_end_date: Date.today - 10.days, user: user, space: space_max)
   booking.save!
