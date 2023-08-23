@@ -1,17 +1,23 @@
 <h1><%=@space.name%></h1>
 
-<div class="data-controller="bookings">
-  <%= simple_form_for [@space, @booking], data:{ controller: "datepicker"} do |f| %>
-    <%= f.input :booking_start_date,
-                label: "Booking dates",
-                as: :string,
-                input_html: { data: { datepicker_target: "start_date" }, class: "bg-warning"}%>
-    <%= f.input :booking_end_date,
-                as: :string,
-                input_html: { data: { datepicker_target: "end_date"}, class: "bg-warning"} %>
-    <%= f.button :submit, class: "btn btn-primary mb-3" %>
-  <% end %>
-</div>
+
+<% if user_signed_in? %>
+  <div class="data-controller="bookings">
+    <%= simple_form_for [@space, @booking], data:{ controller: "datepicker"} do |f| %>
+      <%= f.input :booking_start_date,
+                  label: "Booking dates",
+                  as: :string,
+                  input_html: { data: { datepicker_target: "start_date" }, class: "bg-warning"}%>
+      <%= f.input :booking_end_date,
+                  as: :string,
+                  input_html: { data: { datepicker_target: "end_date"}, class: "bg-warning"} %>
+      <%= f.button :submit, class: "btn btn-primary mb-3" %>
+    <% end %>
+  </div>
+<% else %>
+  <p>Sign in to book (placeholder)</p>
+<% end %>
+
 
 <%= link_to "Go back to spaces", spaces_path, class:"btn btn-primary" %>
 
