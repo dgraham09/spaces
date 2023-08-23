@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 require "faker"
 require "open-uri"
 
@@ -18,10 +11,10 @@ Space.destroy_all
   user = User.new(email: Faker::Internet.email, password: "123456")
   user.save!
 
-  # url = "https://api.unsplash.com/photos/random?client_id=#{ENV["ACCESS_KEY"]}&query=desk"
-  # photo_serialized = URI.open(url).read
-  # photo_json = JSON.parse(photo_serialized)
-  # photo_url = photo_json["urls"]["small"]
+  url = "https://api.unsplash.com/photos/random?client_id=#{ENV["ACCESS_KEY"]}&query=desk"
+  photo_serialized = URI.open(url).read
+  photo_json = JSON.parse(photo_serialized)
+  photo_url = photo_json["urls"]["small"]
 
   streets_paris = [
     "Champs-Élysées",
@@ -42,9 +35,9 @@ Space.destroy_all
     "Villa Gaudelet"
   ]
 
-  # file = URI.open(photo_url)
+  file = URI.open(photo_url)
   space = Space.new(name: Faker::Address.community, address: "#{rand(1..5)} #{streets_paris.sample}, Paris" , price: rand(80.01..900.99), rating: rand(1..5), user: user)
-  # space.photo.attach(io: file, filename: "desk.png", content_type: "image/png")
+  space.photo.attach(io: file, filename: "desk.png", content_type: "image/png")
   space.save!
 
   end
