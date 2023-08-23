@@ -5,6 +5,7 @@
 
 <%# My spaces %>
 <ul>
+
   <% @spaces.each do |space| %>
     <li>
       <h2><%= space.name.upcase %></h2>
@@ -20,11 +21,11 @@
 <ul>
   <% @bookings.each do |booking| %>
     <li>
-      <h2><%= booking.space.name.upcase %></h2>
-      <h3><%= booking.space.price %></h3>
+      <%= render "dashboard/my_booking_card", booking: booking %>
     </li>
     <%end%>
 </ul>
+
 
 
 <%# My account %>
