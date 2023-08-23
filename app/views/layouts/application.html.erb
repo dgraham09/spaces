@@ -6,6 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag asset_path('logos/spaces_logo_icon_vector.svg') %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -17,5 +19,6 @@
     <%= yield %>
       <p><%= render "shared/flashes" %></p>
       <p class="alert"><%= alert %></p>
+    <%= render "shared/footer" %>
   </body>
 </html>
