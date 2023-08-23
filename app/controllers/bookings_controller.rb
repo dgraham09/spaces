@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.space = @space
     if @booking.save
-      redirect_to spaces_path
+      redirect_to dashboard_path
     else
       render "spaces/show", status: :unprocessable_entity
     end
