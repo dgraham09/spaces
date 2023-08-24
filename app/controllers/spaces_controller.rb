@@ -7,22 +7,15 @@ class SpacesController < ApplicationController
         @spaces = @spaces.where(sql_subquery, query: "%#{params[:query]}%")
       end
 
-      if params[:query_s_date].present?
-        @spaces = @spaces.where{booking_start_date: params[:query_s_date]}
-        (query_s_date >= booking_start_date && query_s_date <= booking_end_date
-      end
-
-
-
-      @spaces.booking.each do |booking_start_date, booking_end_date|
-        if ) ||
-           (query_e_date >= booking_start_date && query_e_date <= booking_end_date)
-          return false # Dates overlap with an existing booking
+      if (params[:query_s_date].present? && params[:query_e_date].present?)
+        @spaces.each do |space|
+          space.unavailable_date_ranges.each do |range|
+            @spaces = @spaces.where.not(id: space.id) if (range.include?(Date.parse(params[:query_s_date])) || range.include?(Date.parse(params[:query_e_date])))
+          end
         end
       end
-      true # Dates are available
-    end
 
+      @spaces
     end
 
     def new
