@@ -52,11 +52,11 @@ Owners.each do |owner|
     rating: rand(1..5),
     capacity: rand(2..20)
   )
-  photo_serialized = URI.open(url).read
-  photo_json = JSON.parse(photo_serialized)
-  photo_url = photo_json["urls"]["small"]
-  file = URI.open(photo_url)
-  space.photo.attach(io: file, filename: "desk.png", content_type: "image/png")
+  # photo_serialized = URI.open(url).read
+  # photo_json = JSON.parse(photo_serialized)
+  # photo_url = photo_json["urls"]["small"]
+  # file = URI.open(photo_url)
+  # space.photo.attach(io: file, filename: "desk.png", content_type: "image/png")
   space.save!
 end
 
