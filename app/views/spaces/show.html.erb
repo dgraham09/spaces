@@ -41,8 +41,7 @@
             <%= f.input :booking_start_date,
                         label: "Booking dates",
                         as: :string,
-                        input_html: { data: { datepicker_target: "start_date" }, class: "bg-warning"}
-                        %>
+                        input_html: { data: { datepicker_target: "start_date" }, class: "bg-warning"} %>
             <%= f.input :booking_end_date,
                         as: :string,
                         input_html: { data: { datepicker_target: "end_date"}, class: "bg-warning"} %>
@@ -55,16 +54,6 @@
 
     </div>
   </div>
-  <div class="p-2">
-    <h4> <%= @space.price.truncate(2) %>€ </h4>
-    <p>Half day rate</p>
-  </div>
-  <div class="p-2">
-    <h4> <%= (@space.price*30*2).truncate(2) %>€ </h4>
-    <p>Monthly rate</p>
-
-
-
 
   <div class="map-spaces" style=" width: 1239px; height: 866px;"
     data-controller="map"
