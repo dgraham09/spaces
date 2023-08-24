@@ -1,64 +1,118 @@
 require "faker"
 require "open-uri"
 
+streets_paris = [
+  "Champs-Élysées",
+  "Avenue Montaigne",
+  "Rue de Rivoli",
+  "Boulevard Saint-Germain",
+  "Rue du Faubourg Saint-Honoré",
+  "Rue de la Paix",
+  "Boulevard Haussmann",
+  "Rue Saint-Antoine",
+  "Rue de la Bastille",
+  "Rue des Martyrs",
+  "Avenue des Champs-Élysées",
+  "Rue de la Roquette",
+  "Rue de la Pompe",
+  "Quai de Conti",
+  "Rue de la Madeleine",
+  "Villa Gaudelet"
+]
 
-puts 'Creating 25 fake spaces'
+# url = "https://api.unsplash.com/photos/random?client_id=#{ENV["ACCESS_KEY"]}&query=desk"
+
+puts 'Destroying database ...'
 User.destroy_all
 Booking.destroy_all
 Space.destroy_all
 
-25.times do
-  user = User.new(email: Faker::Internet.email, password: "123456")
+puts 'Creating 18 fake users ...'
+
+18.times do
+  user = User.new(
+    email: Faker::Internet.email,
+    password: "123456",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name
+  )
   user.save!
+end
 
-  url = "https://api.unsplash.com/photos/random?client_id=#{ENV["ACCESS_KEY"]}&query=desk"
-  photo_serialized = URI.open(url).read
-  photo_json = JSON.parse(photo_serialized)
-  photo_url = photo_json["urls"]["small"]
+puts 'Creating 9 fake spaces with 2 bookings each ...'
 
-  streets_paris = [
-    "Champs-Élysées",
-    "Avenue Montaigne",
-    "Rue de Rivoli",
-    "Boulevard Saint-Germain",
-    "Rue du Faubourg Saint-Honoré",
-    "Rue de la Paix",
-    "Boulevard Haussmann",
-    "Rue Saint-Antoine",
-    "Rue de la Bastille",
-    "Rue des Martyrs",
-    "Avenue des Champs-Élysées",
-    "Rue de la Roquette",
-    "Rue de la Pompe",
-    "Quai de Conti",
-    "Rue de la Madeleine",
-    "Villa Gaudelet"
-  ]
-
-  file = URI.open(photo_url)
-  space = Space.new(name: Faker::Address.community, address: "#{rand(1..5)} #{streets_paris.sample}, Paris" , price: rand(80.01..900.99), rating: rand(1..5), capacity: rand(2..20), user: user)
-  space.photo.attach(io: file, filename: "desk.png", content_type: "image/png")
+9.times do |i|
+  owner = User.find(i + 1) # owner
+  space = Space.new(
+    name: Faker::Address.community,
+    address: "#{rand(1..5)} #{streets_paris.sample}, Paris",
+    price: rand(80.01..500.99),
+    rating: rand(1..5),
+    capacity: rand(2..20),
+    user: owner
+  )
+  # photo_serialized = URI.open(url).read
+  # photo_json = JSON.parse(photo_serialized)
+  # photo_url = photo_json["urls"]["small"]
+  # file = URI.open(photo_url)
+  # space.photo.attach(io: file, filename: "desk.png", content_type: "image/png")
   space.save!
 
-  end
+  # For each space create 2 bookings:
 
-  user = User.new(email: "maxxx@gmail.com", password: "123456")
-  user.save!
-  space_max = Space.new(name: "Max's Castle", address: "Gran Via de les Corts Catalanes, 540, 08011 Barcelona, Spain", price: 88, capacity: 12, user: user)
-  space_max.save!
+  Booking.create(
+    space: space,
+    user: owner,
+    booking_start_date: Date.new(2023, 8, 24),
+    booking_end_date: Date.new(2023, 9, 4)
+  )
+  Booking.create(
+    space: space,
+    user: owner,
+    booking_start_date: Date.new(2023, 9, 21),
+    booking_end_date: Date.new(2023, 9, 26)
+  )
+end
 
-  user = User.new(email: "davidos@gmail.com", password: "123456")
-  user.save!
-  booking = Booking.new(booking_start_date: Date.today - 6.days, booking_end_date: Date.today - 4.days, user: user, space: space_max)
-  booking.save!
+puts "Seeding super users Davidos, Max and Malin ..."
 
-  user = User.new(email: "malinuxmagician@gmail.com", password: "123456")
-  user.save!
-  space = Space.new(name: "Park residence", address: "163 Av. de Suffren, 75015 Paris", price: 90, capacity: 8, user: user)
-  space.save!
-  booking = Booking.new(booking_start_date: Date.today - 23.days, booking_end_date: Date.today - 10.days, user: user, space: space_max)
-  booking.save!
-  booking = Booking.new(booking_start_date: Date.today - 60.days, booking_end_date: Date.today - 56.days, user: user, space: space_max)
-  booking.save!
+user = User.create(email: "maxxx@gmail.com", password: "123456", first_name: "Max")
+space_max = Space.create(
+  name: "Max's Castle",
+  address: "Gran Via de les Corts Catalanes, 540, 08011 Barcelona, Spain",
+  price: 88,
+  capacity: 12,
+  user: user
+)
 
-puts 'Finished!'
+user = User.create(email: "davidos@gmail.com", password: "123456", first_name: "Davidos")
+Booking.create(
+  space: space_max,
+  user: user,
+  booking_start_date: Date.new(2023, 8, 19),
+  booking_end_date: Date.new(2023, 8, 24)
+)
+
+user = User.create(email: "malinuxmagician@gmail.com", password: "123456", first_name: "Malin")
+Space.create(
+  name: "Malin's Cave",
+  address: "163 Av. de Suffren, 75015 Paris",
+  price: 90,
+  capacity: 8,
+  user: user
+)
+Booking.create(
+  space: space_max,
+  user: user,
+  booking_start_date: Date.new(2023, 8, 26),
+  booking_end_date: Date.new(2023, 9, 5)
+)
+
+Booking.create(
+  space: space_max,
+  user: user,
+  booking_start_date: Date.new(2023, 9, 10),
+  booking_end_date: Date.new(2023, 9, 14)
+)
+
+puts 'Seed Finished!'
