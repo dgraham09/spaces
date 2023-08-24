@@ -1,6 +1,8 @@
 require "faker"
 require "open-uri"
 
+url = "https://api.unsplash.com/photos/random?client_id=#{ENV["ACCESS_KEY"]}&query=desk"
+
 streets_paris = [
   "Champs-Élysées",
   "Avenue Montaigne",
@@ -20,8 +22,6 @@ streets_paris = [
   "Villa Gaudelet"
 ]
 
-# url = "https://api.unsplash.com/photos/random?client_id=#{ENV["ACCESS_KEY"]}&query=desk"
-
 puts 'Destroying database ...'
 User.destroy_all
 Booking.destroy_all
@@ -39,36 +39,41 @@ puts 'Creating 18 fake users ...'
   user.save!
 end
 
-puts 'Creating 9 fake spaces with 2 bookings each ...'
+puts 'Creating 9 fake spaces with 9 random Users as Owners...'
 
-9.times do |i|
-  owner = User.find(i + 1) # owner
+Owners = User.all.sample(9)
+
+Owners.each do |owner|
   space = Space.new(
+    user: owner,
     name: Faker::Address.community,
     address: "#{rand(1..5)} #{streets_paris.sample}, Paris",
-    price: rand(80.01..500.99),
+    price: rand(30.01..300.99),
     rating: rand(1..5),
-    capacity: rand(2..20),
-    user: owner
+    capacity: rand(2..20)
   )
-  # photo_serialized = URI.open(url).read
-  # photo_json = JSON.parse(photo_serialized)
-  # photo_url = photo_json["urls"]["small"]
-  # file = URI.open(photo_url)
-  # space.photo.attach(io: file, filename: "desk.png", content_type: "image/png")
+  photo_serialized = URI.open(url).read
+  photo_json = JSON.parse(photo_serialized)
+  photo_url = photo_json["urls"]["small"]
+  file = URI.open(photo_url)
+  space.photo.attach(io: file, filename: "desk.png", content_type: "image/png")
   space.save!
+end
 
+puts 'Creating 18 fake bookings, 2 for each space, with a random User Customer'
+puts 'No overlapping dates'
+
+Space.all.each do |space|
   # For each space create 2 bookings:
-
   Booking.create(
     space: space,
-    user: owner,
+    user: User.all.sample,
     booking_start_date: Date.new(2023, 8, 24),
     booking_end_date: Date.new(2023, 9, 4)
   )
   Booking.create(
     space: space,
-    user: owner,
+    user: User.all.sample,
     booking_start_date: Date.new(2023, 9, 21),
     booking_end_date: Date.new(2023, 9, 26)
   )
