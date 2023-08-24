@@ -23,8 +23,7 @@
 
       <div class="space-properties">
         <div>
-          <p class="specific-property-spac
-          <p>Person Capacity</p>
+          <p class="specific-property-spac">Person Capacity</p>
         </div>
         <div>
           <p class="specific-property-spaces"> <%= @space.price.truncate(2) %>€ </p>
@@ -56,6 +55,13 @@
 
     </div>
   </div>
+  <div class="p-2">
+    <h4> <%= @space.price.truncate(2) %>€ </h4>
+    <p>Half day rate</p>
+  </div>
+  <div class="p-2">
+    <h4> <%= (@space.price*30*2).truncate(2) %>€ </h4>
+    <p>Monthly rate</p>
 
 
 
