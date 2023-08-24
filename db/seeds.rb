@@ -11,10 +11,10 @@ Space.destroy_all
   user = User.new(email: Faker::Internet.email, password: "123456")
   user.save!
 
-  url = "https://api.unsplash.com/photos/random?client_id=#{ENV["ACCESS_KEY"]}&query=desk"
-  photo_serialized = URI.open(url).read
-  photo_json = JSON.parse(photo_serialized)
-  photo_url = photo_json["urls"]["small"]
+  # url = "https://api.unsplash.com/photos/random?client_id=#{ENV["ACCESS_KEY"]}&query=desk"
+  # photo_serialized = URI.open(url).read
+  # photo_json = JSON.parse(photo_serialized)
+  # photo_url = photo_json["urls"]["small"]
 
   streets_paris = [
     "Champs-Élysées",

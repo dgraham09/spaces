@@ -29,7 +29,7 @@
     <p>Half day rate</p>
   </div>
   <div class="p-2">
-    <h4> <%= @space.price.truncate(2)*30*2 %>€ </h4>
+    <h4> <%= (@space.price*30*2).truncate(2) %>€ </h4>
     <p>Monthly rate</p>
   </div>
 </div>

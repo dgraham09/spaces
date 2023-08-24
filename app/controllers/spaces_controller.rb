@@ -2,6 +2,27 @@ class SpacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
     def index
       @spaces = Space.all
+      if params[:query].present?
+        sql_subquery = "name ILIKE :query OR address ILIKE :query"
+        @spaces = @spaces.where(sql_subquery, query: "%#{params[:query]}%")
+      end
+
+      if params[:query_s_date].present?
+        @spaces = @spaces.where{booking_start_date: params[:query_s_date]}
+        (query_s_date >= booking_start_date && query_s_date <= booking_end_date
+      end
+
+
+
+      @spaces.booking.each do |booking_start_date, booking_end_date|
+        if ) ||
+           (query_e_date >= booking_start_date && query_e_date <= booking_end_date)
+          return false # Dates overlap with an existing booking
+        end
+      end
+      true # Dates are available
+    end
+
     end
 
     def new
