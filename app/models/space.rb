@@ -21,4 +21,9 @@ class Space < ApplicationRecord
   #   using: {
   #     tsearch: { prefix: true }
   # }
+  def unavailable_dates
+    bookings.pluck(:booking_start_date, :booking_end_date).map do |range|
+      {from: range[0], to: range[1]}
+    end
+  end
 end
