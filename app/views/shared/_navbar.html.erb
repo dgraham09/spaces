@@ -13,17 +13,31 @@
         <%= link_to "New Space", new_space_path, class: "nav-link"%>
       </li>
       <li>
-        <input class="input-spaces searchbar-spaces" type="text" placeholder="Spaces in your area...">
+        <%= form_with url: spaces_path, method: :get, class: "d-flex", data:{ controller: "datepicker", datepicker_disabled_dates_value: [].to_json} do %>
+
+          <%= text_field_tag :query,
+            params[:query],
+            class: "input-spaces searchbar-spaces mx-2",
+            placeholder: "🔍 Spaces in your area..."
+          %>
+          <%= text_field_tag :query_s_date,
+            params[:query_s_date],
+            class: "input-spaces mx-2",
+            placeholder: "📅 Start Date",
+            as: :string,
+            data: { datepicker_target: "start_date" }
+          %>
+          <%= text_field_tag :query_e_date,
+            params[:query_e_date],
+            class: "input-spaces mx-2",
+            placeholder: "📅 End Date",
+            as: :string,
+            data: { datepicker_target: "end_date" }
+          %>
+          <%= submit_tag "Search", name: "", class: "btn-spaces btn-secondary-spaces" %>
+        <% end %>
       </li>
-      <li>
-        <input class="input-spaces" type="text" placeholder="Start Date">
-      </li>
-      <li>
-        <input class="input-spaces" type="text" placeholder="End Date">
-      </li>
-      <li>
-        <a href="" class="btn-spaces btn-secondary-spaces">Search</a>
-      </li>
+
     <% else %>
       <li class="nav-item">
         <%= link_to "Login", new_user_session_path, class: "nav-link" %>

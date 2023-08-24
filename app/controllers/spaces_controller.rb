@@ -2,6 +2,20 @@ class SpacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
     def index
       @spaces = Space.all
+      if params[:query].present?
+        sql_subquery = "name ILIKE :query OR address ILIKE :query"
+        @spaces = @spaces.where(sql_subquery, query: "%#{params[:query]}%")
+      end
+
+      if (params[:query_s_date].present? && params[:query_e_date].present?)
+        @spaces.each do |space|
+          space.unavailable_date_ranges.each do |range|
+            @spaces = @spaces.where.not(id: space.id) if (range.include?(Date.parse(params[:query_s_date])) || range.include?(Date.parse(params[:query_e_date])))
+          end
+        end
+      end
+
+      @spaces
     end
 
     def new

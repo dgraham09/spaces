@@ -23,8 +23,7 @@
 
       <div class="space-properties">
         <div>
-          <p class="specific-property-spac
-          <p>Person Capacity</p>
+          <p class="specific-property-spac">Person Capacity</p>
         </div>
         <div>
           <p class="specific-property-spaces"> <%= @space.price.truncate(2) %>€ </p>
@@ -42,8 +41,7 @@
             <%= f.input :booking_start_date,
                         label: "Booking dates",
                         as: :string,
-                        input_html: { data: { datepicker_target: "start_date" }, class: "bg-warning"}
-                        %>
+                        input_html: { data: { datepicker_target: "start_date" }, class: "bg-warning"} %>
             <%= f.input :booking_end_date,
                         as: :string,
                         input_html: { data: { datepicker_target: "end_date"}, class: "bg-warning"} %>
@@ -56,9 +54,6 @@
 
     </div>
   </div>
-
-
-
 
   <div class="map-spaces" style=" width: 1239px; height: 866px;"
     data-controller="map"

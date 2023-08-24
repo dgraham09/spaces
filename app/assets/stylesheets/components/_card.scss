@@ -42,15 +42,25 @@
 // Filters Card on all spaces page:
 .filters-card-spaces{
   width: 295px;
-  height: 564px;
+  // height: 564px;
 
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.10);
   padding: 20px 24px;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.filters-card-spaces-content{
-  width: 100%;
+.filters-card-spaces form{
   display: flex;
+  flex-direction: column;
+
   justify-content: space-between;
+
+  flex-grow: 1;
+}
+
+.filters-card-spaces form > div{
+  padding: 10px 0;
 }
