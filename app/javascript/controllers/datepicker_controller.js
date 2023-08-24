@@ -8,10 +8,20 @@ export default class extends Controller {
     "start_date",
     "end_date"
   ]
+
+  static values = {
+    disabledDates: Array
+  }
+
   connect() {
     flatpickr(this.start_dateTarget,
       {
-        "plugins": [new rangePlugin({ input: this.end_dateTarget})]
+        "plugins": [new rangePlugin({ input: this.end_dateTarget})],
+        "dateFormat": "Y-m-d",
+        "disable": [...this.disabledDatesValue, {
+          from: "2023-08-01",
+          to: "2023-08-25"
+        }]
       })
     // Add option config
   }
