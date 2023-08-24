@@ -1,36 +1,65 @@
-.specific-space{
+.show-space{
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  width: 1250px;
   height: 530px;
-  margin: 100px 0;
+  margin-bottom: 50px;
 }
 
-.specific-space .image-container-spaces{
-  width: 610px;
+.show-space > img{
+  width: 560px;
   height: 530px;
+  border-radius: 20px;
+  margin-right: 50px;
+  object-fit:cover;
 }
 
-.specific-space .image-container-spaces img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-.specific-property-spaces{
-  font-weight: 700;
-  font-size: 40px;
-}
-
-.space-properties{
+.show-space > div {
+  flex-grow: 1;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  text-align: center;
+  height: 100%;
 }
+
+.show-space .highlights{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  width: 100%;
+}
+
+.show-space .highlights >div{
+  width: 33%;
+}
+
+.rating_and_price{
+  display: flex;
+  align-items: center;
+  width: 60%;
+  justify-content: space-between;
+}
+
+.rating_and_price > div{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 
 .map-spaces{
-  border-radius: 40px;
+  border-radius: 20px;;
+}
+
+
+.flex-left-align-column{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.flex-right-align-column{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

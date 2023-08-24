@@ -1,0 +1,15 @@
+#myTab{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+#myTab button{
+  color: $dark-grey;
+}
+
+
+#myTab .active{
+  color: black;
+  font-weight: bold;
+}
