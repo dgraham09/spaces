@@ -1,4 +1,4 @@
-.btn-spaces{
+.btn-spaces {
   padding: 16px 54px;
   display: flex;
   justify-content: center;
@@ -11,10 +11,18 @@
   font-size: 14px;
 }
 
-.btn-primary-spaces{
+.btn-primary-spaces {
   background-color: $spaces-yellow;
 }
-.btn-secondary-spaces{
+
+.btn-secondary-spaces {
   background-color: $dark-grey;
   color: $white;
+}
+
+.btn-small {
+  padding: 12px 8px;
+  height: min-content;
+  width: 15vw;
+
 }

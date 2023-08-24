@@ -70,3 +70,18 @@ ul {
 .tabbar a:hover {
   border-bottom: 3px solid black;
 }
+
+.bookingButton {
+  display: flex;
+  width: 158.667px;
+  height: 39.289px;
+  padding: 12.089px 40.8px;
+  justify-content: center;
+  align-items: center;
+  gap: 9.067px;
+  flex-shrink: 0;
+}
+
+.space-card-details {
+  width: 50em;
+}
