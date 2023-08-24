@@ -23,7 +23,7 @@
 
       <div class="space-properties">
         <div>
-          <p class="specific-property-spaces"> <%= 10 %></p>
+          <p class="specific-property-spac
           <p>Person Capacity</p>
         </div>
         <div>
@@ -37,12 +37,13 @@
       </div>
 
       <% if user_signed_in? %>
-        <div class="data-controller="bookings>
-          <%= simple_form_for [@space, @booking], data:{ controller: "datepicker"} do |f| %>
+        <div>
+          <%= simple_form_for [@space, @booking], data:{ controller: "datepicker", datepicker_disabled_dates_value: @space.unavailable_dates.to_json} do |f| %>
             <%= f.input :booking_start_date,
                         label: "Booking dates",
                         as: :string,
-                        input_html: { data: { datepicker_target: "start_date" }, class: "bg-warning"}%>
+                        input_html: { data: { datepicker_target: "start_date" }, class: "bg-warning"}
+                        %>
             <%= f.input :booking_end_date,
                         as: :string,
                         input_html: { data: { datepicker_target: "end_date"}, class: "bg-warning"} %>
