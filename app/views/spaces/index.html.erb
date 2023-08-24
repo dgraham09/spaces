@@ -1,9 +1,84 @@
 <div class="spaces-index-container container mt-5">
+
   <div class="filters-card-spaces">
-    <div class="filters-card-spaces-content">
-      <h5>Filters</h5>
-      <i class="fa-solid fa-filter"></i>
+    <div class="border-bottom d-flex justify-content-between mb-2">
+        <h5>Filters</h5>
+        <i class="fa-solid fa-filter"></i>
     </div>
+
+    <%= form_with url: spaces_path, method: :get do %>
+      <%# PRICE %>
+      <div class="border-bottom">
+        <h5>Price</h5>
+        <div class="d-flex justify-content-around">
+          <div>
+            <label for="min_price">Min</label>
+            <%= text_field_tag :min_price,
+                  params[:min_price],
+                  class: "input-spaces input-small-spaces",
+                  placeholder: "€0"
+            %>
+          </div>
+          <div>
+            <label for="max_price">Max</label>
+            <%= text_field_tag :max_price,
+                  params[:max_price],
+                  class: "input-spaces input-small-spaces",
+                  placeholder: "€300"
+            %>
+          </div>
+        </div>
+      </div>
+
+      <%# CAPACITY %>
+      <div class="border-bottom">
+        <h5>Capacity</h5>
+        <div class="d-flex justify-content-around">
+          <div>
+            <label for="min_capacity">Min</label>
+            <%= text_field_tag :min_capacity,
+                  params[:min_capacity],
+                  class: "input-spaces input-small-spaces",
+                  placeholder: "0"
+            %>
+          </div>
+          <div>
+            <label for="max_capacity">Max</label>
+            <%= text_field_tag :max_capacity,
+                  params[:max_capacity],
+                  class: "input-spaces input-small-spaces",
+                  placeholder: "20"
+            %>
+          </div>
+        </div>
+      </div>
+
+      <%# RATING %>
+      <div class="border-bottom mb-3">
+        <h5>Rating</h5>
+        <div class="d-flex justify-content-around">
+          <div>
+            <label for="min_rating">Min</label>
+            <%= text_field_tag :min_rating,
+                  params[:min_rating],
+                  class: "input-spaces input-small-spaces",
+                  placeholder: "0"
+            %>
+          </div>
+          <div>
+            <label for="max_rating">Max</label>
+            <%= text_field_tag :max_rating,
+                  params[:max_rating],
+                  class: "input-spaces input-small-spaces",
+                  placeholder: "5"
+            %>
+          </div>
+        </div>
+      </div>
+
+
+      <%= submit_tag "Apply Filters", name: "", class: "btn-spaces btn-secondary-spaces" %>
+    <% end %>
   </div>
 
   <div class="all-spaces">
