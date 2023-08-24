@@ -2,6 +2,14 @@
   <%# My spaces %>
   <%= render "dashboard/tabs_bar"%>
   <ul>
+    <% @spaces.each do |space| %>
+      <li>
+        <%= render "dashboard/my_space_card", space: space, bookings: space.bookings %>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul>
 
     <% @spaces.each do |space| %>
       <li>
@@ -22,9 +30,4 @@
       </li>
       <%end%>
   </ul>
-
 </div>
-
-
-
-<%# My account %>
