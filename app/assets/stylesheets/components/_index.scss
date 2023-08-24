@@ -7,8 +7,13 @@
 @import "button";
 @import "card";
 @import "footer";
+@import "nav_tabs";
 
 
 .border-bottom-spaces{
   border-bottom: 1px solid $light-grey;
+}
+
+.border-right-spaces{
+  border-right: 1px solid $light-grey;
 }

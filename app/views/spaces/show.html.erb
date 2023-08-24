@@ -1,37 +1,58 @@
 <div class="container">
-  <div class="specific-space">
-    <div class="image-container-spaces">
-      <% if @space.photo.attached? %>
-        <%= cl_image_tag @space.photo.key%>
-      <% else %>
-        <%= image_tag "stock/stock_space.jpg"%>
-      <% end %>
-    </div>
 
+  <div class="flex-left-align-column mt-3 mb-3">
+    <%= link_to spaces_path, class:"btn-spaces btn-secondary-spaces" do%>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+  </div>
+
+  <div class="show-space">
+    <%# Image %>
+    <% if @space.photo.attached? %>
+      <%= cl_image_tag @space.photo.key%>
+    <% else %>
+      <%= image_tag "stock/stock_space.jpg"%>
+    <% end %>
+
+    <%# Content %>
     <div>
       <h3><%=@space.name%></h3>
-      <div>
-        <% @space.rating.to_i.times do %>
-          <span><i class="fa-solid fa-star"></i></span>
-        <% end %>
-        <% (5 - @space.rating.to_i).times do %>
-          <span><i class="fa-regular fa-star"></i></span>
-        <% end %>
-        <%= @space.rating %>
-      </div>
-      <p><%=@space.address%></p>
+      <div class="d-flex align-items-center">
 
-      <div class="space-properties">
-        <div>
-          <p class="specific-property-spac
+        <div class="rating_and_price">
+          <div>
+            <div>
+              <% @space.rating.to_i.times do %>
+                <span><i class="fa-solid fa-star"></i></span>
+              <% end %>
+              <% (5 - @space.rating.to_i).times do %>
+                <span><i class="fa-regular fa-star"></i></span>
+              <% end %>
+            </div>
+            <p><strong><%= @space.rating %></strong>/5</p>
+          </div>
+          <div>
+            <h4 class="m-0">€400 </h4>
+            <p>For Selected Dates</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="border-bottom pb-4"><%=@space.address%></p>
+
+      <div class="highlights border-bottom pb-4">
+        <div class="border-right-spaces">
+          <h4><%= @space.capacity %></h4>
           <p>Person Capacity</p>
         </div>
-        <div>
-          <p class="specific-property-spaces"> <%= @space.price.truncate(2) %>€ </p>
+
+        <div class="border-right-spaces">
+          <h4><%= @space.price.truncate(2) %>€</h4>
           <p>Half Day Rate</p>
         </div>
+
         <div>
-          <p class="specific-property-spaces"> <%= (@space.price*30*2).truncate(2) %>€ </p>
+          <h4><%= (@space.price * 40).truncate(2) %>€</h4>
           <p>Monthly Rate</p>
         </div>
       </div>
@@ -39,35 +60,56 @@
       <% if user_signed_in? %>
         <div>
           <%= simple_form_for [@space, @booking], data:{ controller: "datepicker", datepicker_disabled_dates_value: @space.unavailable_dates.to_json} do |f| %>
-            <%= f.input :booking_start_date,
-                        label: "Booking dates",
-                        as: :string,
-                        input_html: { data: { datepicker_target: "start_date" }, class: "bg-warning"}
-                        %>
-            <%= f.input :booking_end_date,
-                        as: :string,
-                        input_html: { data: { datepicker_target: "end_date"}, class: "bg-warning"} %>
-            <%= f.button :submit, class: "btn btn-primary mb-3" %>
+          <div class="d-flex align-items-center justify-content-between border-bottom pb-3">
+            <p>Select Dates:</p>
+            <div class="d-flex" style="gap:20px">
+              <%= f.input :booking_start_date,
+                          label: "Start Date",
+                          as: :string,
+                          input_html: { data: { datepicker_target: "start_date" }}
+                          %>
+              <%= f.input :booking_end_date,
+                          label: "End Date",
+                          as: :string,
+                          input_html: { data: { datepicker_target: "end_date"}} %>
+            </div>
+          </div>
+          <div class="flex-right-align-column mt-3">
+            <%= f.button :submit, "Book This Space", class: "btn-spaces btn-primary-spaces" %>
+          </div>
           <% end %>
         </div>
       <% else %>
         <p>Sign in to book (placeholder)</p>
       <% end %>
-
     </div>
   </div>
 
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="about-host-tab" data-bs-toggle="tab" data-bs-target="#about-host" type="button" role="tab" aria-controls="about-host" aria-selected="true">About The Host</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="map-tab" data-bs-toggle="tab" data-bs-target="#map" type="button" role="tab" aria-controls="map" aria-selected="false">Map</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="ratings-tab" data-bs-toggle="tab" data-bs-target="#ratings" type="button" role="tab" aria-controls="ratings" aria-selected="false">Ratings & Reviews</button>
+    </li>
+  </ul>
 
-
-
-  <div class="map-spaces" style=" width: 1239px; height: 866px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade" id="about-host" role="tabpanel" aria-labelledby="about-host-tab">ABOUT HOST PLACEHOLDER</div>
+    <div class="tab-pane fade show active" id="map" role="tabpanel" aria-labelledby="map-tab">
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="map-spaces" style=" width: 893px; height: 646px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">RATINGS AND REVIEWS PLACEHOLDER</div>
   </div>
 
 
-  <%= link_to "Back To Spaces", spaces_path, class:"btn btn-primary" %>
-
-  <%# Move controller up to top of form and create two new targets %>
 </div>
