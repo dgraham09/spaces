@@ -18,14 +18,10 @@ export default class extends Controller {
       {
         "plugins": [new rangePlugin({ input: this.end_dateTarget})],
         "dateFormat": "Y-m-d",
-        "disable": this.disabledDatesValue,
-        "enable": [
-          {
-            from: "2023-08-25",
-            to: "2025-05-01"
-          }
-        ]
-
+        "disable": [...this.disabledDatesValue, {
+          from: "2023-08-01",
+          to: "2023-08-25"
+        }]
       })
     // Add option config
   }
