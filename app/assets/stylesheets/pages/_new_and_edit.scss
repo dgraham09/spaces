@@ -1,0 +1,23 @@
+.form-outer-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form-container{
+  padding: 20px;
+}
+
+.header_title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_button{
+  display: flex;
+  justify-content: center;
+  width: 180px;
+  margin: 20px;
+}

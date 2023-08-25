@@ -21,3 +21,19 @@
 .navbar-spaces img {
   width: 140px;
 }
+
+.absolute {
+  position: absolute;
+  left: 15px;
+  top: 17px;
+  color: $dark-grey;
+}
+
+.relative {
+  position: relative;
+  padding-right: 8px;
+}
+
+.form-input {
+  padding: -40px;
+}
