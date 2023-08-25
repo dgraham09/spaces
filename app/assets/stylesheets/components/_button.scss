@@ -7,7 +7,7 @@
   border-radius: 62px;
   border: 1px solid rgba(0, 0, 0, 0.10);
   gap: 12px;
-  color:$black;
+  color: $black;
   font-size: 14px;
 }
 
@@ -21,8 +21,10 @@
 }
 
 .btn-small {
-  padding: 12px 8px;
-  height: min-content;
-  width: 15vw;
+  padding: 12.089px 40.8px;
+}
 
+.btn-danger-spaces {
+  background-color: var(--warning-red, #DC3545);
+  color: white;
 }
