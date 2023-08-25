@@ -1,13 +1,14 @@
-<div class="container">
-  <h1>Create new space</h1>
-    <div>
-      <%= simple_form_for [@space] do |f| %>
-        <%= f.input :name, placeholder: "Smith's properties" %>
-        <%= f.input :address, placeholder: "10 Oak street, New York, NY" %>
-        <%= f.input :price, placeholder: "99.99" %>
-        <%= f.input :photo, as: :file %>
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-      <% end %>
-      <%= link_to "Go back", spaces_path, class: "btn btn-secondary my-4" %>
-    </div>
+<%= link_to "Go back", spaces_path, class: "btn-spaces btn-secondary-spaces header_button"%>
+
+<h2 class="pb-4 header_title">Create new space</h2>
+
+<div class="form-outer-container">
+    <%= simple_form_for [@space] do |f| %>
+      <%= f.input :name, placeholder: "Smith's properties" %>
+      <%= f.input :address, placeholder: "10 Oak street, New York, NY" %>
+      <%= f.input :price, placeholder: "99.99" %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Submit", class: "btn-spaces btn-primary-spaces" %>
+    <% end %>
 </div>
+

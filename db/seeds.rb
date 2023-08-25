@@ -34,7 +34,10 @@ puts 'Creating 18 fake users ...'
     email: Faker::Internet.email,
     password: "123456",
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
+    last_name: Faker::Name.last_name,
+    company: Faker::Company.name,
+    bio: Faker::GreekPhilosophers.quote,
+    photo_url: "https://avatars.githubusercontent.com/u/26028980?v=4"
   )
   user.save!
 end
@@ -81,7 +84,15 @@ end
 
 puts "Seeding super users Davidos, Max and Malin ..."
 
-user = User.create(email: "maxxx@gmail.com", password: "123456", first_name: "Max")
+user = User.create(
+  email: "maxxx@gmail.com",
+  password: "123456",
+  first_name: "Max",
+  company: "Le Wagon",
+  bio: "Just ask ChatGPT...",
+  photo_url: "https://avatars.githubusercontent.com/u/133643249?v=4"
+)
+
 space_max = Space.create(
   name: "Max's Castle",
   address: "Gran Via de les Corts Catalanes, 540, 08011 Barcelona, Spain",
@@ -91,15 +102,30 @@ space_max = Space.create(
   user: user
 )
 
-user = User.create(email: "davidos@gmail.com", password: "123456", first_name: "Davidos")
+user = User.create(
+  email: "davidos@gmail.com",
+  password: "123456",
+  first_name: "Davidos",
+  company: "Le Wagon",
+  bio: Faker::GreekPhilosophers.quote,
+  photo_url: "https://avatars.githubusercontent.com/u/79008613?v=4"
+)
+
 Booking.create(
   space: space_max,
   user: user,
   booking_start_date: Date.new(2023, 8, 19),
-  booking_end_date: Date.new(2023, 8, 24)
+  booking_end_date: Date.new(2023, 8, 24),
 )
 
-user = User.create(email: "malinuxmagician@gmail.com", password: "123456", first_name: "Malin")
+user = User.create(
+  email: "malinuxmagician@gmail.com",
+  password: "123456",
+  first_name: "Malin",
+  company: "Le Wagon",
+  bio: Faker::GreekPhilosophers.quote,
+  photo_url: "https://avatars.githubusercontent.com/u/89942878?v=4"
+)
 Space.create(
   name: "Malin's Cave",
   address: "163 Av. de Suffren, 75015 Paris",

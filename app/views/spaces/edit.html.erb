@@ -1,12 +1,14 @@
-<div class="m-5">
-  <%= form_with model: @space do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-    <%= f.label :price %>
-    <%= f.text_field :price %>
-    <%= f.submit %>
-  <% end %>
-  <%= link_to "Go back", dashboard_path, class: "text-decoration-none"%>
+
+<%= link_to "Go back", dashboard_path, class: "btn-spaces btn-secondary-spaces header_button"%>
+
+<h2 class="pb-4 header_title">Edit space</h2>
+
+<div class="form-outer-container">
+    <%= simple_form_for [@space] do |f| %>
+      <%= f.input :name, placeholder: "Smith's properties" %>
+      <%= f.input :address, placeholder: "10 Oak street, New York, NY" %>
+      <%= f.input :price, placeholder: "99.99" %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Submit", class: "btn-spaces btn-primary-spaces" %>
+    <% end %>
 </div>

@@ -98,7 +98,10 @@
   </ul>
 
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade" id="about-host" role="tabpanel" aria-labelledby="about-host-tab">ABOUT HOST PLACEHOLDER</div>
+    <div class="tab-pane fade" id="about-host" role="tabpanel" aria-labelledby="about-host-tab">
+      <p><%= render "users/user_card", user: @space.user %></p>
+    </div>
+
     <div class="tab-pane fade show active" id="map" role="tabpanel" aria-labelledby="map-tab">
       <div class="d-flex align-items-center justify-content-center">
         <div class="map-spaces" style=" width: 893px; height: 646px;"
