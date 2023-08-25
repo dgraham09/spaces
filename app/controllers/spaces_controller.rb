@@ -66,7 +66,7 @@ class SpacesController < ApplicationController
       @space = Space.find(params[:id])
       @booking = Booking.new
 
-      @markers = [{lat: @space.latitude, lng: @space.longitude, info_window_html: render_to_string(partial: "info_window", locals: {space: @space})}]
+      @markers = [{lat: @space.latitude, lng: @space.longitude, info_window_html: render_to_string(partial: "info_window", locals: {space: @space}), marker_html: render_to_string(partial: "marker")}]
     end
 
     def edit

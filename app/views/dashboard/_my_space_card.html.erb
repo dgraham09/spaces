@@ -9,8 +9,8 @@
       <% end %>
       <p class="p-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos vel porro doloribus ipsum cupiditate expedita ex, odio corporis at voluptate dolor iure.</p>
       <div class="d-flex justify-content-around">
-        <button class="btn-spaces btn-primary-spaces btn-small">Edit Space</button>
-        <%= link_to "Delete Space", space_path(space), class:"btn-danger-spaces btn-spaces btn-small text-white", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></>
+        <%= link_to "Edit Space", edit_space_path(space), class:"btn-spaces btn-primary-spaces btn-small"%>
+        <%= link_to "Delete Space", space_path(space), class:"btn-danger-spaces btn-spaces btn-small text-white", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </div>
     </div>
     <div class="d-flex flex-column bookings-container">
