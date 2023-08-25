@@ -87,6 +87,7 @@ space_max = Space.create(
   address: "Gran Via de les Corts Catalanes, 540, 08011 Barcelona, Spain",
   price: 88,
   capacity: 12,
+  rating: 4,
   user: user
 )
 
@@ -104,6 +105,7 @@ Space.create(
   address: "163 Av. de Suffren, 75015 Paris",
   price: 90,
   capacity: 8,
+  rating: 3,
   user: user
 )
 Booking.create(
