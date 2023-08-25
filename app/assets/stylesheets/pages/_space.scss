@@ -63,3 +63,23 @@
   flex-direction: column;
   align-items: flex-end;
 }
+
+
+.user_card{
+  display: flex;
+  padding: 15px 32px;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.user_card img{
+  height: 410px;
+  width: 410px;
+  border-radius: 50%;
+  border: solid 1px $medium-grey;
+}
+
+.user_card > div{
+  flex-grow: 1;
+}
