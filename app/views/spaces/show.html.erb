@@ -17,25 +17,15 @@
     <%# Content %>
     <div>
       <h3><%=@space.name%></h3>
-      <div class="d-flex align-items-center">
-
-        <div class="rating_and_price">
-          <div>
-            <div>
-              <% @space.rating.to_i.times do %>
-                <span><i class="fa-solid fa-star"></i></span>
-              <% end %>
-              <% (5 - @space.rating.to_i).times do %>
-                <span><i class="fa-regular fa-star"></i></span>
-              <% end %>
-            </div>
-            <p><strong><%= @space.rating %></strong>/5</p>
-          </div>
-          <%# <div>
-            <h4 class="m-0">€400 </h4>
-            <p>For Selected Dates</p>
-          </div> %>
-        </div>
+      <div class="d-flex align-items-center border-bottom pb-4">
+        <% @space.rating.to_i.times do %>
+          <span><i class="fa-solid fa-star"></i></span>
+        <% end %>
+        <% (5 - @space.rating.to_i).times do %>
+          <span><i class="fa-regular fa-star"></i></span>
+        <% end %>
+        <p style="opacity:0;">sp</p>
+        <p class="pl-5" ><strong><%= @space.rating %></strong>/5</p>
       </div>
 
       <p class="border-bottom pb-4"><%=@space.address%></p>
@@ -47,12 +37,12 @@
         </div>
 
         <div class="border-right-spaces">
-          <h4><%= @space.price.truncate(2) %>€</h4>
+          <h4><%= @space.price.round %>€</h4>
           <p>Half Day Rate</p>
         </div>
 
         <div>
-          <h4><%= (@space.price * 40).truncate(2) %>€</h4>
+          <h4><%= (@space.price * 40).round %>€</h4>
           <p>Monthly Rate</p>
         </div>
       </div>
@@ -111,8 +101,40 @@
         </div>
       </div>
     </div>
-
-    <div class="tab-pane fade" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">RATINGS AND REVIEWS PLACEHOLDER</div>
+    <div class="tab-pane fade" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">
+    <div class="d-flex justify-content-around">
+      <div class="reviews">
+        <h5>A great place to stay!</h5>
+        <h6>James</h6>
+        <div class="flex">
+          <% 4.times do %>
+            <span><i class="fa-solid fa-star star"></i></span>
+          <% end %>
+        </div>
+        <p>Really enjoyable stay here, host was very welcoming. Would highly recommend!</p>
+      </div>
+      <div class="reviews">
+        <h5>Nice location!</h5>
+        <h6>Alex</h6>
+        <div class="flex">
+          <% 5.times do %>
+            <span><i class="fa-solid fa-star star"></i></span>
+          <% end %>
+        </div>
+        <p>Could not ask for a better location, not too far from the train station so perfect for the commute!</p>
+      </div>
+       <div class="reviews">
+        <h5>Needs a bit of an upgrade...</h5>
+        <h6>Sophie</h6>
+        <div class="flex">
+          <% 2.times do %>
+            <span><i class="fa-solid fa-star star"></i></span>
+          <% end %>
+        </div>
+        <p>This place leaves a lot to be desired, the desks need a major upgrade. Would recommend looking for another place.</p>
+      </div>
+      </div>
+    </div>
   </div>
 
 </div>

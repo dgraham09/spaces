@@ -7,7 +7,7 @@
       <% else %>
         <%= image_tag "stock/stock_space.jpg"%>
       <% end %>
-      <p class="p-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos vel porro doloribus ipsum cupiditate expedita ex, odio corporis at voluptate dolor iure.</p>
+      <p class="p-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque tincidunt nunc. Duis gravida semper nibh.</p>
       <div class="d-flex justify-content-around">
         <%= link_to "Edit Space", edit_space_path(space), class:"btn-spaces btn-primary-spaces btn-small"%>
         <%= link_to "Delete Space", space_path(space), class:"btn-danger-spaces btn-spaces btn-small text-white", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
@@ -32,9 +32,9 @@
         <% bookings.each do |booking| %>
         <div class="d-flex flex-row p-2 my-3 card align-items-center space-card-details">
             <div class="d-flex flex-column flex-grow-1 p-3">
-              <h5><span><%= booking.user.first_name%><%= booking.user.last_name %> </span></h5>
-              <h6>Company: Example</h6>
-              <span>Dates: <strong><%= booking.booking_start_date %> - </strong><strong> <%= booking.booking_end_date %></strong></span>
+              <h5 style="color: black !important;"><span><%= booking.user.first_name%><%= booking.user.last_name %> </span></h5>
+              <small>Company: <strong><%= booking.user.company%></strong></small>
+              <small>Dates: <strong><%= booking.booking_start_date %> - <%= booking.booking_end_date %></strong></small>
             </div>
               <button class="btn-spaces btn-secondary-spaces btn-small mx-5">More Info</button>
         </div>

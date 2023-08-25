@@ -2,9 +2,6 @@ ul {
   list-style: none;
 }
 
-// progress -webkit-progress-value {
-//   color: red;
-// }
 .my-booking-card img {
   width: 304px;
   height: 307px;
@@ -24,62 +21,17 @@ ul {
 }
 
 
-.my-booking-card #selectedDates,
-.my-booking-card span,
-.my-booking-card a {
-  color: rgba(0, 0, 0, 0.60);
-}
-
 .dashboard .tabbar {
   display: flex;
   justify-content: center;
   text-align: center;
 }
 
-.tabbar {
-  border-bottom: 1px solid rgb(224, 224, 224);
-  width: 50%;
-  margin: 0 auto;
-}
-
-.tabbar a {
-  text-decoration: none;
-  color: black;
-  font-family: "Roboto";
-  margin: 1em;
-}
-
-.tabbar .active a {
-  text-decoration: none;
-  color: black;
-  font-family: "Roboto";
-  margin: 1em;
-}
-
-
-.tabbar a.active {
-  border-bottom: 3px solid black;
-}
-
-.tabbar a:hover {
-  border-bottom: 3px solid black;
-}
-
-.bookingButton {
-  display: flex;
-  width: 158.667px;
-  height: 39.289px;
-  padding: 12.089px 40.8px;
-  justify-content: center;
-  align-items: center;
-  gap: 9.067px;
-  flex-shrink: 0;
-}
-
-.space-card-details {
-  width: 50em;
-}
-
 .bookings-container {
   min-width: 800px;
+
+}
+
+.my-booking-card{
+  border-radius: 20px !important;
 }
