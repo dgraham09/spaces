@@ -20,29 +20,29 @@ class SpacesController < ApplicationController
 
       # Price, Capacity, and Rating Search:
       if params[:min_price].present?
-        @spaces = @spaces.where("price > :min_price", min_price: params[:min_price])
+        @spaces = @spaces.where("price >= :min_price", min_price: params[:min_price])
       end
 
       if params[:max_price].present?
-        @spaces = @spaces.where("price > :max_price", max_price: params[:max_price])
+        @spaces = @spaces.where("price <= :max_price", max_price: params[:max_price])
       end
 
 
       if params[:min_capacity].present?
-        @spaces = @spaces.where("capacity > :min_capacity", min_capacity: params[:min_capacity])
+        @spaces = @spaces.where("capacity >= :min_capacity", min_capacity: params[:min_capacity])
       end
 
       if params[:max_capacity].present?
-        @spaces = @spaces.where("capacity > :max_capacity", max_capacity: params[:max_capacity])
+        @spaces = @spaces.where("capacity <= :max_capacity", max_capacity: params[:max_capacity])
       end
 
 
       if params[:min_rating].present?
-        @spaces = @spaces.where("rating > :min_rating", min_rating: params[:min_rating])
+        @spaces = @spaces.where("rating >= :min_rating", min_rating: params[:min_rating])
       end
 
       if params[:max_rating].present?
-        @spaces = @spaces.where("rating > :max_rating", max_rating: params[:max_rating])
+        @spaces = @spaces.where("rating <= :max_rating", max_rating: params[:max_rating])
       end
 
       @spaces
