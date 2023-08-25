@@ -17,25 +17,15 @@
     <%# Content %>
     <div>
       <h3><%=@space.name%></h3>
-      <div class="d-flex align-items-center">
-
-        <div class="rating_and_price">
-          <div>
-            <div>
-              <% @space.rating.to_i.times do %>
-                <span><i class="fa-solid fa-star"></i></span>
-              <% end %>
-              <% (5 - @space.rating.to_i).times do %>
-                <span><i class="fa-regular fa-star"></i></span>
-              <% end %>
-            </div>
-            <p><strong><%= @space.rating %></strong>/5</p>
-          </div>
-          <div>
-            <h4 class="m-0">€400 </h4>
-            <p>For Selected Dates</p>
-          </div>
-        </div>
+      <div class="d-flex align-items-center border-bottom pb-4">
+        <% @space.rating.to_i.times do %>
+          <span><i class="fa-solid fa-star"></i></span>
+        <% end %>
+        <% (5 - @space.rating.to_i).times do %>
+          <span><i class="fa-regular fa-star"></i></span>
+        <% end %>
+        <p style="opacity:0;">sp</p>
+        <p class="pl-5" ><strong><%= @space.rating %></strong>/5</p>
       </div>
 
       <p class="border-bottom pb-4"><%=@space.address%></p>
@@ -47,12 +37,12 @@
         </div>
 
         <div class="border-right-spaces">
-          <h4><%= @space.price.truncate(2) %>€</h4>
+          <h4><%= @space.price.round %>€</h4>
           <p>Half Day Rate</p>
         </div>
 
         <div>
-          <h4><%= (@space.price * 40).truncate(2) %>€</h4>
+          <h4><%= (@space.price * 40).round %>€</h4>
           <p>Monthly Rate</p>
         </div>
       </div>
