@@ -1,4 +1,4 @@
-.show-space{
+.show-space {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,15 +6,15 @@
   margin-bottom: 50px;
 }
 
-.show-space > img{
+.show-space>img {
   width: 560px;
   height: 530px;
   border-radius: 20px;
   margin-right: 50px;
-  object-fit:cover;
+  object-fit: cover;
 }
 
-.show-space > div {
+.show-space>div {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -22,44 +22,63 @@
   height: 100%;
 }
 
-.show-space .highlights{
+.show-space .highlights {
   display: flex;
   justify-content: space-around;
   text-align: center;
   width: 100%;
 }
 
-.show-space .highlights >div{
+.show-space .highlights>div {
   width: 33%;
 }
 
-.rating_and_price{
+.rating_and_price {
   display: flex;
   align-items: center;
   width: 60%;
   justify-content: space-between;
 }
 
-.rating_and_price > div{
+.rating_and_price>div {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 
-.map-spaces{
-  border-radius: 20px;;
+.map-spaces {
+  border-radius: 20px;
+  ;
 }
 
 
-.flex-left-align-column{
+.flex-left-align-column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.flex-right-align-column{
+.flex-right-align-column {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+.reviews {
+  display: flex;
+  width: 400px;
+  height: 280px;
+  padding: 28px 32px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 24px 342px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.star {
+  fill: #FFC633;
 }
